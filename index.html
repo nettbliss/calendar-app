@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Календарь с событиями</title>
+    <link rel="icon" href="/img/calendar-svgrepo-com.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/globals.css" />
+    <link rel="stylesheet" href="styles/buttons.css" />
+    <link rel="stylesheet" href="styles/fields.css" />
+    <link rel="stylesheet" href="styles/calendar.css" />
+    <link rel="stylesheet" href="styles/modal.css" />
+    <link rel="stylesheet" href="styles/todo.css" />
+    <link rel="stylesheet" href="styles/todo_item.css" />
+  </head>
+  <body>
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <div class="stars" id="stars"></div>
+
+    <div class="calendar">
+      <div class="calendar__header">
+        <button id="prev-btn" class="calendar__btn">◀</button>
+        <div id="month-year"></div>
+        <button id="next-btn" class="calendar__btn">▶</button>
+      </div>
+      <div class="calendar__day-names"></div>
+      <div id="calendar-days" class="calendar__days"></div>
+    </div>
+
+    <div id="event-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3 id="selected-date" class="modal-title"></h3>
+
+        <div class="event-form">
+          <div class="time-input-container">
+            <label>Время:</label>
+            <div class="time-picker">
+              <div class="time-input-wrapper">
+                <input
+                  type="number"
+                  class="time-input"
+                  id="hours-input"
+                  min="0"
+                  max="23"
+                  value="12"
+                />
+                <div class="time-arrows">
+                  <button class="time-arrow" id="hours-up">▲</button>
+                  <button class="time-arrow" id="hours-down">▼</button>
+                </div>
+              </div>
+              <span class="time-separator">:</span>
+              <div class="time-input-wrapper">
+                <input
+                  type="number"
+                  class="time-input"
+                  id="minutes-input"
+                  min="0"
+                  max="59"
+                  value="00"
+                />
+                <div class="time-arrows">
+                  <button class="time-arrow" id="minutes-up">▲</button>
+                  <button class="time-arrow" id="minutes-down">▼</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <textarea
+            id="event-text"
+            placeholder="Добавьте событие..."
+            rows="3"
+          ></textarea>
+          <button id="add-event-btn">Добавить событие</button>
+          <button id="update-event-btn">Обновить событие</button>
+        </div>
+
+        <div class="events-container">
+          <div class="events-header">
+            <h4>События</h4>
+            <button id="toggle-events-btn" class="toggle-events-btn">
+              <span>Свернуть</span>
+              <span>▼</span>
+            </button>
+          </div>
+          <div class="events-list" id="events-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/calendar.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+.events-container {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9375rem;
+}
+
+.events-header h4 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: var(--base-size);
+  font-weight: 600;
+}
+
+.events-list {
+  overflow-y: auto;
+  flex-grow: 1;
+  max-height: 12.5rem;
+  transition: max-height var(--transition-speed) ease;
+  padding-right: 0.3125rem;
+}
+
+.events-list::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.events-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+}
+
+.events-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0.25rem;
+}
+
+.events-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.events-list.collapsed {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.no-events {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+}

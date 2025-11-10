@@ -1,0 +1,129 @@
+.calendar__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50%;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.calendar__btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+#add-event-btn,
+#update-event-btn {
+  background-color: #cd82b8;
+  color: white;
+  border: none;
+  padding: 0.875rem 0.9375rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all var(--transition-speed) ease;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.3);
+  margin-top: 0.5rem;
+}
+
+#update-event-btn {
+  background-color: #ffcc00;
+  color: #5d0d46;
+  display: none;
+}
+
+#add-event-btn:hover,
+#update-event-btn:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+#add-event-btn:hover {
+  background-color: #b86ea3;
+}
+
+#update-event-btn:hover {
+  background-color: #e6b800;
+}
+
+#add-event-btn:active,
+#update-event-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.5);
+}
+
+.toggle-events-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.3125rem;
+  transition: all var(--transition-speed) ease;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+}
+
+.toggle-events-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.time-arrow {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.625rem;
+  padding: 0.125rem;
+  line-height: 1;
+  transition: all var(--transition-speed) ease;
+}
+
+.time-arrow:hover {
+  color: #ffcc00;
+  transform: scale(1.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.9375rem;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: white;
+  z-index: 10;
+  width: 2.1875rem;
+  height: 2.1875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all var(--transition-speed) ease;
+  background: none;
+  border: none;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+@media (max-width: 30rem) {
+  .calendar__btn {
+    font-size: var(--base-size);
+    padding: 0.5rem 0.75rem;
+  }
+}
