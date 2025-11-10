@@ -91,3 +91,20 @@ body {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   }
 }
+
+@media (max-width: 30rem) {
+  body {
+    touch-action: pan-x pan-y; 
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .calendar__header,
+  .calendar__day-names,
+  .calendar__days span {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
