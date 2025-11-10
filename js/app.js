@@ -21,9 +21,7 @@ const createStars = () => {
   }
 };
 
-// Перенести вызов функций в событие DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
   createStars();
-  if (window.renderDayNames) window.renderDayNames();
-  if (window.renderCalendar) window.renderCalendar();
+  console.log('Stars initialized');
 });
