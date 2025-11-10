@@ -6,11 +6,18 @@
   --gap-base: 0.5rem;
   --transition-speed: 0.3s;
   --blur-intensity: 1.875rem;
+
+  --primary-color: #5d0d46;
+  --secondary-color: #a36a93;
+  --accent-color: #cd82b8;
 }
 
+
 body {
-  background: linear-gradient(to left, #5d0d46, #a36a93) !important;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) fixed !important;
+  background-color: var(--primary-color) !important; 
   min-height: 100vh !important;
+  min-height: -webkit-fill-available !important; 
   font-size: var(--base-size) !important;
   font-family: "Josefin Sans", sans-serif !important;
   display: flex !important;
@@ -20,22 +27,32 @@ body {
   position: relative !important;
   overflow: auto !important;
   margin: 0 !important;
+  
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
 }
 
 .calendar {
-  background: rgba(163, 106, 147, 0.05) !important;
+  background: rgba(163, 106, 147, 0.15) !important; 
   backdrop-filter: blur(var(--blur-intensity)) !important;
-  border: 0.125rem solid rgba(255, 255, 255, 0.1) !important;
+  -webkit-backdrop-filter: blur(var(--blur-intensity)) !important; 
+  border: 0.125rem solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 0 5rem rgba(0, 0, 0, 0.3),
+    0 0 2rem rgba(205, 130, 184, 0.2) !important;
 }
 
 .stars {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  height: -webkit-fill-available !important; 
+  pointer-events: none !important;
+  z-index: -1 !important;
+  background: transparent !important;
 }
 
 .star {
@@ -43,6 +60,7 @@ body {
   background-color: white;
   border-radius: 50%;
   animation: twinkle 3s infinite ease-in-out;
+  will-change: transform, opacity;
 }
 
 @keyframes twinkle {
@@ -58,18 +76,19 @@ body {
 }
 
 @media (max-width: 30rem) {
-  :root {
-    --base-size: 0.875rem;
-    --padding-base: 0.9375rem;
-    --element-size: 1.75rem;
-    --gap-base: 0.25rem;
+  body {
+    padding: 0.5rem !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) fixed !important;
+  }
+  
+  .calendar {
+    margin: 0.5rem !important;
+    width: calc(100% - 1rem) !important;
   }
 }
 
-@media (max-width: 20rem) {
-  :root {
-    --base-size: 0.75rem;
-    --padding-base: 0.625rem;
-    --element-size: 1.5rem;
+@supports (-webkit-touch-callout: none) {
+  body {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
   }
 }
