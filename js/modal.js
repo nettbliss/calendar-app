@@ -5,7 +5,10 @@ const selectedDateEl = document.getElementById("selected-date");
 let selectedDate = null;
 
 const openEventModal = (dateKey) => {
+  console.log('openEventModal called with:', dateKey);
   selectedDate = dateKey;
+  window.selectedDate = dateKey;
+  
   const [year, month, day] = dateKey.split("-").map(Number);
   selectedDateEl.textContent = `${day} ${window.monthNames[month]} ${year} года`;
 
@@ -13,12 +16,8 @@ const openEventModal = (dateKey) => {
   const hours = now.getHours();
   const minutes = now.getMinutes();
 
-  document.getElementById("hours-input").value = hours
-    .toString()
-    .padStart(2, "0");
-  document.getElementById("minutes-input").value = minutes
-    .toString()
-    .padStart(2, "0");
+  document.getElementById("hours-input").value = hours.toString().padStart(2, "0");
+  document.getElementById("minutes-input").value = minutes.toString().padStart(2, "0");
 
   document.getElementById("event-text").value = "";
 
