@@ -9,16 +9,23 @@
 }
 
 body {
-  background: linear-gradient(to left, #5d0d46, #a36a93);
-  min-height: 100vh;
-  font-size: var(--base-size);
-  font-family: "Josefin Sans", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.25rem;
-  position: relative;
-  overflow: auto;
+  background: linear-gradient(to left, #5d0d46, #a36a93) !important;
+  min-height: 100vh !important;
+  font-size: var(--base-size) !important;
+  font-family: "Josefin Sans", sans-serif !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1.25rem !important;
+  position: relative !important;
+  overflow: auto !important;
+  margin: 0 !important;
+}
+
+.calendar {
+  background: rgba(163, 106, 147, 0.05) !important;
+  backdrop-filter: blur(var(--blur-intensity)) !important;
+  border: 0.125rem solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .stars {
