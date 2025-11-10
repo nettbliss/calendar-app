@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="ru">
     <title>Календарь с событиями</title>
-    <link rel="icon" href="/img/calendar-svgrepo-com.svg" />
+    <link rel="icon" href="./img/calendar-svgrepo-com.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -29,13 +31,20 @@
       })();
     </script>
     <div class="stars" id="stars"></div>
-
     <div class="calendar">
       <div class="calendar__header">
-        <button id="prev-btn" class="calendar__btn">◀</button>
-        <div id="month-year"></div>
-        <button id="next-btn" class="calendar__btn">▶</button>
-      </div>
+  <button id="prev-btn" class="calendar__btn">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+  </button>
+  <div id="month-year"></div>
+  <button id="next-btn" class="calendar__btn">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M9 18l6-6-6-6"/>
+    </svg>
+  </button>
+</div>
       <div class="calendar__day-names"></div>
       <div id="calendar-days" class="calendar__days"></div>
     </div>
