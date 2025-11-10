@@ -5,22 +5,17 @@ const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
 
 const monthNames = [
-  "Январь",
-  "Февраль",
-  "Март",
-  "Апрель",
-  "Май",
-  "Июнь",
-  "Июль",
-  "Август",
-  "Сентябрь",
-  "Октябрь",
-  "Ноябрь",
-  "Декабрь",
+  "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+  "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
 ];
 const dayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
 let currentDate = new Date();
+
+if (!window.calendarEvents) {
+  window.calendarEvents = JSON.parse(localStorage.getItem("calendarEvents")) || {};
+  console.log('Events initialized:', Object.keys(window.calendarEvents).length);
+}
 
 const getDateKey = (date) => {
   return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
@@ -33,6 +28,8 @@ const renderDayNames = () => {
 };
 
 const renderCalendar = () => {
+  console.log('renderCalendar called, events:', window.calendarEvents);
+  
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
@@ -55,14 +52,12 @@ const renderCalendar = () => {
       year === today.getFullYear();
 
     const dateKey = getDateKey(date);
-    const hasEvents =
-      window.calendarEvents[dateKey] &&
-      window.calendarEvents[dateKey].length > 0;
+    const hasEvents = window.calendarEvents[dateKey] && window.calendarEvents[dateKey].length > 0;
+
+    console.log(`Day ${day}, key: ${dateKey}, hasEvents: ${hasEvents}`);
 
     daysContainer.innerHTML += `
-        <span class="${isToday ? "today" : ""} ${
-      hasEvents ? "has-events" : ""
-    }" 
+        <span class="${isToday ? "today" : ""} ${hasEvents ? "has-events" : ""}" 
               data-date="${dateKey}">${day}</span>
     `;
   }
@@ -72,6 +67,7 @@ const renderCalendar = () => {
     .forEach((day) => {
       day.addEventListener("click", () => {
         const dateKey = day.getAttribute("data-date");
+        console.log('Day clicked:', dateKey);
         window.openEventModal(dateKey);
       });
     });
@@ -85,5 +81,12 @@ const changeMonth = (delta) => {
 prevBtn.addEventListener("click", () => changeMonth(-1));
 nextBtn.addEventListener("click", () => changeMonth(1));
 
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, initializing calendar...');
+  renderDayNames();
+  renderCalendar();
+});
+
 window.renderCalendar = renderCalendar;
 window.getDateKey = getDateKey;
+window.monthNames = monthNames;
