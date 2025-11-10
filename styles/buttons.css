@@ -8,6 +8,11 @@
   padding: 0.5rem 0.75rem;
   border-radius: 50%;
   font-family: "Josefin Sans", sans-serif;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .calendar__btn:hover {
